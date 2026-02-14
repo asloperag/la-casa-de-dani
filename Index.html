@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>La Casa de Dani | Cocina Sana a Domicilio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="La Casa de Dani, cocina sana con toque gourmet y precios de restaurante casero. Domicilios en Envigado, Antioquia." />
+  <style>
+    :root {
+      --verde: #2e7d32;
+      --verde-oscuro: #1b5e20;
+      --crema: #fff8e6;
+      --gris-suave: #f5f5f5;
+      --texto: #333333;
+      --acento: #ffb300;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--texto);
+      background: var(--gris-suave);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--verde-oscuro), var(--verde));
+      color: #ffffff;
+      padding: 1.5rem 1rem 2.5rem;
+    }
+
+    .contenedor {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .header-top {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .logo-nombre {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .logo-nombre h1 {
+      font-size: 2.2rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .logo-nombre span {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .header-contacto {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .header-contacto strong {
+      font-weight: 700;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--acento);
+      color: #000;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+      background: #ffc533;
+    }
+
+    .badge-delivery {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      font-size: 0.85rem;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4caf50;
+      box-shadow: 0 0 0 4px rgba(76,175,80,0.35);
+    }
+
+    main {
+      margin-top: -1.5rem;
+      padding-bottom: 3rem;
+    }
+
+    section {
+      padding: 2rem 0;
+    }
+
+    .tarjeta {
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      margin-bottom: 1.5rem;
+    }
+
+    .tarjeta h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      color: var(--verde-oscuro);
+    }
+
+    .tarjeta p {
+      margin-bottom: 0.5rem;
+      font-size: 0.98rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .header-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1.2fr 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .chef-bio {
+      font-size: 0.96rem;
+    }
+
+    .chef-bio strong {
+      color: var(--verde-oscuro);
+    }
+
+    .lista-simple {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .lista-simple li::before {
+      content: "• ";
+      color: var(--verde);
+      font-weight: 700;
+    }
+
+    .menu-precios {
+      margin-top: 0.75rem;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.4rem 0;
+      border-bottom: 1px dashed #e0e0e0;
+      font-size: 0.98rem;
+    }
+
+    .menu-item span.precio {
+      font-weight: 700;
+      color: var(--verde-oscuro);
+    }
+
+    .menu-nota {
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: 0.4rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #e8f5e9;
+      color: var(--verde-oscuro);
+      margin-right: 0.3rem;
+      margin-top: 0.3rem;
+    }
+
+    .galeria {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 600px) {
+      .galeria {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .foto-plato {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.9rem;
+      background: #ddd;
+      min-height: 180px;
+    }
+
+    .foto-plato img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .foto-plato:hover img {
+      transform: scale(1.03);
+    }
+
+    .foto-etiqueta {
+      position: absolute;
+      left: 0.75rem;
+      bottom: 0.75rem;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+    }
+
+    .info-contacto {
+      font-size: 0.95rem;
+    }
+
+    .info-contacto p {
+      margin-bottom: 0.3rem;
+    }
+
+    .info-contacto strong {
+      color: var(--verde-oscuro);
+    }
+
+    footer {
+      background: #111;
+      color: #eee;
+      padding: 1.2rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: #ffc533;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="contenedor">
+      <div class="header-top">
+        <div class="logo-nombre">
+          <h1>La Casa de Dani</h1>
+          <span>Cocina sana con toque gourmet · Envigado, Antioquia</span>
+          <div class="badge-delivery">
+            <span class="badge-dot"></span>
+            <span>Solo cocina con domicilio</span>
+          </div>
+        </div>
+        <div class="header-contacto">
+          <p><strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/573015007378" style="color:#ffecb3;text-decoration:none;">+57 301 500 7378</a></p>
+          <p><strong>Ubicación:</strong> Envigado, Antioquia · Colombia</p>
+          <a class="btn-cta" href="https://wa.me/573015007378?text=Hola%20Dani,%20quiero%20hacer%20un%20pedido.">
+            Hacer pedido por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="contenedor">
+      <!-- Sección: Sobre La Casa de Dani -->
+      <section>
+        <div class="tarjeta grid grid-2">
+          <div>
+            <h2>La Casa de Dani</h2>
+            <p>
+              En <strong>La Casa de Dani</strong> encuentras platos balanceados, con ingredientes frescos,
+              un <strong>toque gourmet</strong> y precios de <strong>restaurante casero</strong>.
+              Ideal para quienes quieren comer rico, sano y sin complicarse.
+            </p>
+            <p>
+              Por el momento somos una <strong>cocina con servicio a domicilio</strong> en Envigado, Antioquia:
+              tú pides, Dani cocina y tu comida llega hasta tu casa u oficina.
+            </p>
+            <ul class="lista-simple">
+              <li>Comida sana y casera con presentación profesional.</li>
+              <li>Porciones completas: proteína + pasta/guarnición + ensalada.</li>
+              <li>Ideal para almuerzos diarios o comidas especiales.</li>
+            </ul>
+          </div>
+          <div>
+            <h2>Sobre el chef</h2>
+            <p class="chef-bio">
+              <strong>Daniel</strong> es chef graduado de la
+              <strong>Escuela de Gastronomía Mariana Moreno (Argentina)</strong>,
+              con experiencia nacional e internacional.
+            </p>
+            <p class="chef-bio">
+              Fue <strong>Jefe de cocina en The Westin Dallas Hotel</strong> (Estados Unidos),
+              donde perfeccionó técnicas de cocina internacional y servicio de alto nivel.
+            </p>
+            <p class="chef-bio">
+              Su objetivo con La Casa de Dani es <strong>llevar esa experiencia profesional a tu mesa</strong>,
+              con platos saludables, sabrosos y accesibles.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección: Menú -->
+      <section>
+        <div class="tarjeta">
+          <h2>Menú principal</h2>
+          <p>
+            Todos los platos incluyen <strong>guarnición completa</strong> (por ejemplo: pasta al pesto o similar)
+            y <strong>ensalada fresca</strong>, pensados para una comida balanceada.
+          </p>
+
+          <div class="menu-precios">
+            <div class="menu-item">
+              <span>Plato con guarnición de <strong>pollo</strong></span>
+              <span class="precio">$ 25.000</span>
+            </div>
+            <div class="menu-item">
+              <span>Plato con guarnición de <strong>carne</strong></span>
+              <span class="precio">$ 25.000</span>
+            </div>
+            <div class="menu-item">
+              <span>Plato con guarnición de <strong>salmón</strong></span>
+              <span class="precio">$ 32.000</span>
+            </div>
+          </div>
+
+          <p class="menu-nota">
+            *Precios de referencia tipo restaurante casero, con la calidad y presentación de un chef profesional.
+          </p>
+
+          <div style="margin-top:0.75rem;">
+            <span class="tag">Comida sana</span>
+            <span class="tag">Toque gourmet</span>
+            <span class="tag">Domicilio en Envigado</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección: Galería -->
+      <section>
+        <div class="tarjeta">
+          <h2>Galería de platos</h2>
+          <p>
+            Algunos ejemplos de los platos que puedes recibir en casa:
+            combinaciones de <strong>pasta al pesto</strong>, <strong>pollo a la plancha</strong>,
+            <strong>salmón</strong> y <strong>ensaladas frescas</strong>.
+          </p>
+
+          <div class="galeria" style="margin-top:1rem;">
+            <div class="foto-plato">
+              <!-- Aquí puedes reemplazar el src por la ruta real de tu foto -->
+              <img src="foto-plato-1.jpg" alt="Plato con pasta al pesto, ensalada fresca y pechuga de pollo a la plancha" />
+              <div class="foto-etiqueta">Pasta al pesto con pollo</div>
+            </div>
+            <div class="foto-plato">
+              <img src="foto-plato-2.jpg" alt="Plato con pasta al pesto, ensalada y filete de salmón a la plancha" />
+              <div class="foto-etiqueta">Salmón con pasta y ensalada</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección: Cómo pedir -->
+      <section>
+        <div class="tarjeta grid grid-2">
+          <div>
+            <h2>Cómo hacer tu pedido</h2>
+            <p class="info-contacto">
+              <strong>1.</strong> Elige tu proteína: pollo, carne o salmón.<br />
+              <strong>2.</strong> Envía un mensaje por WhatsApp con tu pedido y dirección.<br />
+              <strong>3.</strong> Coordina hora de entrega y forma de pago.
+            </p>
+            <p class="info-contacto">
+              <strong>Teléfono / WhatsApp:</strong><br />
+              <a href="https://wa.me/573015007378">+57 301 500 7378</a>
+            </p>
+          </div>
+          <div>
+            <h2>Zona de servicio</h2>
+            <p class="info-contacto">
+              Actualmente realizamos domicilios principalmente en:
+            </p>
+            <ul class="lista-simple">
+              <li>Envigado, Antioquia.</li>
+              <li>Barrios y sectores cercanos (consultar por WhatsApp).</li>
+            </ul>
+            <p class="info-contacto" style="margin-top:0.5rem;">
+              Si estás cerca de Envigado, escríbenos y miramos la mejor forma de llevarte tu pedido.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <p><strong>La Casa de Dani</strong> · Envigado, Antioquia · Tel/WhatsApp: <a href="https://wa.me/573015007378">+57 301 500 7378</a></p>
+      <p>Chef: Daniel · Escuela de Gastronomía Mariana Moreno (Argentina) · Experiencia nacional e internacional (The Westin Dallas Hotel).</p>
+    </div>
+  </footer>
+</body>
+</html>
